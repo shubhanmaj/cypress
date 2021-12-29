@@ -31,9 +31,10 @@ describe("Test suit", ()=>{
         cy.get("#alias").type("Learn")
 
         cy.get("#submitAccount").click()
-
-        
-
     })
+
+    it('Verify the registration page', () => {
+        
+    });
    
 })
