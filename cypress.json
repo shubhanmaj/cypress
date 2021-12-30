@@ -1,3 +1,8 @@
 {
-  "projectId": "j5w679"
+  "projectId": "j5w679",
+  "ignoreTestFiles": "**/1-getting-started/*",
+  "ignoreTestFiles": "**/2-advanced-examples/*",
+  "viewportHeight" : 768,
+  "viewportWidth" : 1366
+
 }

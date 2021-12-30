@@ -2,14 +2,29 @@
 let randomEmail = parseInt(Math.random()*10)
 let email = `myemail${randomEmail}@email.com`
 describe("Test suit", ()=>{
-    it("Test01", ()=>{
+    beforeEach(() => {
         cy.visit("http://automationpractice.com/index.php")
         cy.get(".login").click()
+    })
+    it("Test01", ()=>{
         cy.get("#email_create").type(email)
         cy.get("#SubmitCreate").click()
-        // cy.get("#create_account_error").should("be.visible")
     })
-    it("Test02", ()=>{
+    it('Verify the email address is not empty', () => {
+        cy.get("#SubmitCreate").click()
+        cy.get("#create_account_error").should("be.visible")
+    });
+    it('Verify the email address is in correct format', () => {
+        cy.get("#email_create").type("myemail@.com")
+        cy.get("#SubmitCreate").click()
+        cy.get("#create_account_error").should("be.visible")
+    });
+    it('Verify the email address is already registered', () => {
+        cy.get("#email_create").type("myemail2@email.com")
+        cy.get("#SubmitCreate").click()
+        cy.get("#create_account_error").should("be.visible")
+    });
+    it.skip("Test02", ()=>{
         cy.get("#uniform-id_gender1").click()
         cy.get("#customer_firstname").type("myFirstName")
         cy.get("#customer_lastname").type("myLastName")
