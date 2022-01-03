@@ -14,7 +14,5 @@ describe("Cypress JQuery Suite", ()=>{
         cy.on("window:confirm", (str) => {
             expect(str).to.equal("Hello , Are you sure you want to confirm?")
         })
-
-        
     });
 })
